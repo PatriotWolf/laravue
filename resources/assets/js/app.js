@@ -8,16 +8,15 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-App = require('./App.vue')
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+window.VeeValidate = require('vee-validate');
+Vue.use(window.VeeValidate);
+Vue.component('chatbox', require('./components/ChatBox.vue'));
+const app = new Vue({
+    el: '#app',
+});
